@@ -1,0 +1,66 @@
+# Login para obter o JWT Token
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "username": "qwe",
+    "password": "qwe"  
+}
+
+### Após o login, copie o token JWT retornado e o insira no campo Authorization das requisições abaixo.
+### Substitua <token> pelo JWT retornado após o login
+
+# -------------------------
+# GetAllFinanceiro
+# -------------------------
+GET http://localhost:3000/api/financeiro
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzE0MTI3ODIsImV4cCI6MTczMTQxNjM4Mn0.YrG2rQa-kV3k7CntUToGOAHe8ekLgIDgAHwi63SRUr4
+Content-Type: application/json
+
+###
+
+# -------------------------
+# GetFinanceiroById
+# -------------------------
+GET http://localhost:3000/api/financeiro/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzE0MTI3ODIsImV4cCI6MTczMTQxNjM4Mn0.YrG2rQa-kV3k7CntUToGOAHe8ekLgIDgAHwi63SRUr4
+Content-Type: application/json
+
+###
+
+# -------------------------
+# InsertFinanceiro
+# -------------------------
+POST http://localhost:3000/api/financeiro
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzE0MTI3ODIsImV4cCI6MTczMTQxNjM4Mn0.YrG2rQa-kV3k7CntUToGOAHe8ekLgIDgAHwi63SRUr4
+Content-Type: application/json
+
+{
+    "descricao": "Conta de Luz",
+    "data": "2024-01-15",
+    "valor": 150.75
+}
+
+###
+
+# -------------------------
+# UpdateFinanceiro
+# -------------------------
+PUT http://localhost:3000/api/financeiro/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzE0MTI3ODIsImV4cCI6MTczMTQxNjM4Mn0.YrG2rQa-kV3k7CntUToGOAHe8ekLgIDgAHwi63SRUr4
+Content-Type: application/json
+
+{
+    "descricao": "Conta de Luz Atualizada",
+    "data": "2024-01-15",
+    "valor": 175.90
+}
+
+###
+
+# -------------------------
+# DeleteFinanceiro (Soft Delete)
+# -------------------------
+DELETE http://localhost:3000/api/financeiro/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzE0MTI3ODIsImV4cCI6MTczMTQxNjM4Mn0.YrG2rQa-kV3k7CntUToGOAHe8ekLgIDgAHwi63SRUr4
+Content-Type: application/json
