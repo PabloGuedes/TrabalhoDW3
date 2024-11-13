@@ -1,0 +1,50 @@
+# Teste de Login - Obtenção do JWT Token
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "qwe",
+    "password": "qwe"
+}
+
+###
+
+# Teste de Acesso à Página Financeira - Obtenção de Dados
+# (Certifique-se de substituir <token> pelo JWT retornado no login acima)
+GET http://localhost:5000/financeiro
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzE0OTMyMDEsImV4cCI6MTczMTQ5NjgwMX0.Rx8Wr_PQ7S4Yuj3oKu79gxWD9XeUaFuYikNrnjqTs68
+###
+
+# Teste de Inserção de Registro Financeiro
+POST http://localhost:5000/financeiro
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzE0OTMyMDEsImV4cCI6MTczMTQ5NjgwMX0.Rx8Wr_PQ7S4Yuj3oKu79gxWD9XeUaFuYikNrnjqTs68
+
+{
+    "descricao": "Conta de Luz",
+    "data": "2024-01-15",
+    "valor": 150.75
+}
+
+###
+
+# Teste de Atualização de Registro Financeiro
+# (Substitua <id> pelo ID de um registro existente)
+PUT http://localhost:5000/financeiro/7
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzE0OTMyMDEsImV4cCI6MTczMTQ5NjgwMX0.Rx8Wr_PQ7S4Yuj3oKu79gxWD9XeUaFuYikNrnjqTs68
+
+{
+    "descricao": "Conta de Luz Atualizada",
+    "data": "2024-01-15",
+    "valor": 175.90
+}
+
+###
+
+# Teste de Deleção de Registro Financeiro
+# (Substitua <id> pelo ID de um registro existente)
+DELETE http://localhost:5000/financeiro/7
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzE0OTMyMDEsImV4cCI6MTczMTQ5NjgwMX0.Rx8Wr_PQ7S4Yuj3oKu79gxWD9XeUaFuYikNrnjqTs68

@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.login-box,
+.financeiro-form,
+.financeiro-list {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Botões */
+.btn,
+.btn-logout {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  background-color: #5a67d8;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-logout {
+  width: auto;
+  margin: 0;
+  background-color: #e53e3e;
+}
+
+.btn:hover {
+  background-color: #4c51bf;
+}
+
+.btn-logout:hover {
+  background-color: #c53030;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.financeiro-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.financeiro-list li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}

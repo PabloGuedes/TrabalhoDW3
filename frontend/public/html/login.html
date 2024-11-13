@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - ERP Financeiro</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-box">
+        <h2>Login</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <button type="submit" class="btn">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault(); // Previne o envio padrão do formulário
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          try {
+            const response = await fetch("/login", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ username, password }),
+            });
+
+            const data = await response.json();
+
+            if (data.auth && data.token) {
+              // Armazena o token no localStorage ou sessionStorage
+              localStorage.setItem("token", data.token);
+
+              // Redireciona para a página de controle financeiro
+              window.location.href = "/html/financeiro.html";
+            } else {
+              alert("Falha no login! Verifique suas credenciais.");
+            }
+          } catch (error) {
+            console.error("Erro durante o login:", error);
+            alert("Erro ao tentar logar. Tente novamente mais tarde.");
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+<head>
+  <title>Financeiro</title>
+</head>
+<body>
+  <h1>Financeiro</h1>
+  <ul>
+    <% dados.forEach(function(item) { %>
+      <li><%= item.descricao %> - <%= item.valor %></li>
+    <% }) %>
+  </ul>
+</body>
+</html>
