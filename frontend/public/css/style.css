@@ -1,21 +1,22 @@
+/* Reset básico e fonte padrão */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif; /* Fonte padrão */
 }
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f4f4f9;
 }
 
 .container {
   width: 100%;
-  max-width: 500px;
+  max-width: 700px; /* Aumenta o limite para 700px para melhor visualização em páginas maiores */
   padding: 20px;
   margin: 0 auto;
 }
@@ -30,16 +31,14 @@ body {
   margin-bottom: 20px;
 }
 
-h1,
-h2 {
+h1, h2 {
   text-align: center;
   color: #333;
   margin-bottom: 20px;
 }
 
 /* Botões */
-.btn,
-.btn-logout {
+.btn, .btn-logout {
   display: block;
   width: 100%;
   padding: 10px;
@@ -66,6 +65,7 @@ h2 {
   background-color: #c53030;
 }
 
+/* Formulários */
 .form-group {
   margin-bottom: 15px;
 }
@@ -86,12 +86,29 @@ input[type="number"] {
   border-radius: 5px;
 }
 
-.financeiro-list ul {
-  list-style: none;
-  padding: 0;
+/* Tabela */
+.table {
+  font-size: 15px;
+  border: 1px solid #ddd;
 }
 
-.financeiro-list li {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
+.table th, .table td {
+  text-align: center;
+  font-size: 15px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9; 
+}
+
+.table-hover tbody tr:hover {
+  background-color: #e6e6e6;
+}
+
+.table-responsive {
+  margin-top: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

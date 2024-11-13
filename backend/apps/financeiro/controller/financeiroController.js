@@ -1,4 +1,15 @@
 const financeiroModel = require('../model/financeiroModel');
+const pool = require('../../../database/databaseConfig');
+
+exports.getFinanceiros = async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM financeiro ORDER BY id');
+    res.status(200).json(result.rows);
+  } catch (error) {
+    console.error('Erro ao buscar registros financeiros:', error);
+    res.status(500).json({ message: 'Erro ao buscar registros financeiros' });
+  }
+};
 
 exports.getAllFinanceiro = async (req, res) => {
   const result = await financeiroModel.getAllFinanceiro();

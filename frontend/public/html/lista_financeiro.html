@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Registros Financeiros</title>
+
+    <!-- Bootstrap CSS para tabela estilizada -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <header class="d-flex flex-column align-items-center mb-4">
+        <h1 class="text-center">Lista de Registros Financeiros</h1>
+        <button
+          onclick="window.location.href='/html/financeiro.html'"
+          class="btn mt-3"
+        >
+          Voltar para Controle Financeiro
+        </button>
+      </header>
+
+      <!-- Tabela responsiva para exibir os registros -->
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Data</th>
+              <th scope="col">Valor (R$)</th>
+            </tr>
+          </thead>
+          <tbody id="financeiro-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/app.js"></script>
+    <script>
+      const token = localStorage.getItem("token");
+      if (!token) {
+        window.location.href = "/html/login.html";
+      }
+
+      async function loadFinanceiroData() {
+        try {
+          const response = await fetch("http://localhost:3000/api/financeiro", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            const tableBody = document.getElementById("financeiro-table-body");
+
+            tableBody.innerHTML = "";
+
+            data.forEach((item) => {
+              const row = document.createElement("tr");
+
+              const dataFormatada = new Date(item.data).toLocaleDateString(
+                "pt-BR"
+              );
+
+              row.innerHTML = `
+    <td>${item.id}</td>
+    <td>${item.descricao}</td>
+    <td>${dataFormatada}</td>
+    <td>R$ ${parseFloat(item.valor).toFixed(2)}</td>
+  `;
+              tableBody.appendChild(row);
+            });
+          } else {
+            alert("Erro ao carregar registros.");
+          }
+        } catch (error) {
+          console.error("Erro ao conectar com o servidor:", error);
+          alert("Erro ao conectar com o servidor.");
+        }
+      }
+
+      window.onload = loadFinanceiroData;
+    </script>
+  </body>
+</html>
