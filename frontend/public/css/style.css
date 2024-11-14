@@ -1,9 +1,8 @@
-/* Reset básico e fonte padrão */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif; /* Fonte padrão */
+  font-family: Arial, sans-serif;
 }
 
 body {
@@ -16,7 +15,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 700px; /* Aumenta o limite para 700px para melhor visualização em páginas maiores */
+  max-width: 700px;
   padding: 20px;
   margin: 0 auto;
 }
@@ -37,7 +36,6 @@ h1, h2 {
   margin-bottom: 20px;
 }
 
-/* Botões */
 .btn, .btn-logout {
   display: block;
   width: 100%;
@@ -65,7 +63,10 @@ h1, h2 {
   background-color: #c53030;
 }
 
-/* Formulários */
+.btn:hover, .btn:focus {
+  color: white !important;
+}
+
 .form-group {
   margin-bottom: 15px;
 }
@@ -86,7 +87,6 @@ input[type="number"] {
   border-radius: 5px;
 }
 
-/* Tabela */
 .table {
   font-size: 15px;
   border: 1px solid #ddd;
