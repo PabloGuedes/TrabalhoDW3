@@ -9,4 +9,5 @@ const server = http.createServer(app);
 
 server.listen(PORT, '127.0.0.1', () => {
   console.log(`Servidor Frontend rodando na porta ${PORT}`);
+  console.log(`Acesse o sistema em: http://localhost:${PORT}/html/login.html`);
 });
